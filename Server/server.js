@@ -20,11 +20,11 @@ console.log("__filename ", __filename)
 console.log("__dirname ", __dirname)
 
 // SSL/TLS Certificates
-const CERT_PATH = path.join(__dirname, '../certs');
+/*const CERT_PATH = path.join(__dirname, '../certs');
 const serverOptions = {
   key: fs.readFileSync(path.join(CERT_PATH, 'key.pem')),
   cert: fs.readFileSync(path.join(CERT_PATH, 'cert.pem'))
-};
+};*/
 
 // Express Server
 const app = express();
