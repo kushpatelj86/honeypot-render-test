@@ -10,6 +10,7 @@ import { handleMessage, handleJoin, handleDisconnect, handleFile } from './chat.
 import { initLogging, logSystemEvent } from './logger.js';
 import { initKeyStorage, generateKeyPair } from './advanced-encryption.js';
 import { resetExceedCountPeriodically } from './ratelimiting.js';
+import { startKeepAlive } from './keep_alive.js'; // <<< NEW
 
 // Paths & Directories Setup
 const __filename = fileURLToPath(import.meta.url);
@@ -157,13 +158,6 @@ function handlePublicKey(client, username, publicKey) {
 }
 
 
-
-// Initialization
-async function init() {
-  await initKeyStorage();
-  await initLogging();
-  await logSystemEvent('Server started');
-}
 
 
 
