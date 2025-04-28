@@ -19,13 +19,6 @@ const __dirname = path.dirname(__filename);
 console.log("__filename ", __filename)
 console.log("__dirname ", __dirname)
 
-// SSL/TLS Certificates
-const CERT_PATH = path.join(__dirname, '../certs');
-const serverOptions = {
-  key: fs.readFileSync(path.join(CERT_PATH, 'key.pem')),
-  cert: fs.readFileSync(path.join(CERT_PATH, 'cert.pem'))
-};
-
 // Express Server
 const app = express();
 const STATIC_DIR = path.join(__dirname, '../client');
@@ -63,7 +56,7 @@ async function init() {
 
 // Create HTTPS Server
 const port = process.env.PORT || 8001; // Render will use its own dynamic port environment variable
-const httpsServer = https.createServer(serverOptions, app);
+const httpsServer = https.createServer(app);
 const wss = new WebSocketServer({ server: httpsServer });
 
 console.log(`[${new Date().toISOString()}] Server running on https://honeypot-render-test.onrender.com`); //Change to IP, for debugging connection DONT COMMIT IP
