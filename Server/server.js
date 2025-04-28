@@ -156,9 +156,24 @@ function handlePublicKey(client, username, publicKey) {
   }
 }
 
+
+
+// Initialization
+async function init() {
+  await initKeyStorage();
+  await initLogging();
+  await logSystemEvent('Server started');
+}
+
+
+
+
+
 // Initialize server
 init().then(() => {
   httpsServer.listen(8001, () => console.log(`HTTPS running on https://localhost:8001`)); //Change to IP, for debugging connection DONT COMMIT IT
+  startKeepAlive(); // <<< Start Keep Alive Ping
+
 }).catch(error => {
   console.error('Failed to initialize server:', error);
 });
