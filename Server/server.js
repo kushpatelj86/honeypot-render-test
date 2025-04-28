@@ -62,6 +62,7 @@ async function init() {
 }
 
 // Create HTTPS Server
+const port = process.env.PORT || 8001; // Render will use its own dynamic port environment variable
 const httpsServer = https.createServer(serverOptions, app);
 const wss = new WebSocketServer({ server: httpsServer });
 
@@ -165,7 +166,7 @@ function handlePublicKey(client, username, publicKey) {
 
 // Initialize server
 init().then(() => {
-  httpsServer.listen(8001, () => console.log(`HTTPS running on https://localhost:8001`)); //Change to IP, for debugging connection DONT COMMIT IT
+  httpsServer.listen(port, () => console.log(`HTTPS running on https://honeypot-render-test.onrender.com`)); //Change to IP, for debugging connection DONT COMMIT IT
   startKeepAlive(); // <<< Start Keep Alive Ping
 
 }).catch(error => {
