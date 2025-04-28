@@ -66,7 +66,7 @@ const port = process.env.PORT || 8001; // Render will use its own dynamic port e
 const httpsServer = https.createServer(serverOptions, app);
 const wss = new WebSocketServer({ server: httpsServer });
 
-console.log(`[${new Date().toISOString()}] Server running on https://localhost:8001`); //Change to IP, for debugging connection DONT COMMIT IP
+console.log(`[${new Date().toISOString()}] Server running on https://honeypot-render-test.onrender.com`); //Change to IP, for debugging connection DONT COMMIT IP
 
 wss.on('connection', (client, req) => {
   console.log("New client connected.");
