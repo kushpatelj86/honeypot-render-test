@@ -21,7 +21,7 @@ console.log("__dirname ", __dirname)
 
 // Express Server
 const app = express();
-const STATIC_DIR = path.join(__dirname, '/client/index.html');
+const STATIC_DIR = path.join(__dirname, '../client/login.html');
 app.use(express.static(STATIC_DIR));
 app.use(express.json());
 
