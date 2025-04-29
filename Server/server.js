@@ -28,9 +28,16 @@ app.use(express.json());
 
 console.log("STATIC_DIR ", STATIC_DIR)
 app.get('/', (req, res) => {
-  console.log("Received a request to /login route");
+  console.log("Received a request to / route");
 
-  res.sendFile(path.join(STATIC_DIR, 'login.html'));
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error("Failed to send file:", err);
+      res.status(err.status || 500).send('Internal Server Error: Could not load login page');
+    } else {
+      console.log("login.html sent successfully.");
+    }
+  });
 });
 
 // Add endpoint for key generation
