@@ -25,12 +25,6 @@ const STATIC_DIR = path.join(__dirname, '../client');
 app.use(express.static(STATIC_DIR));
 app.use(express.json());
 
-if (!fs.existsSync(STATIC_DIR)) {
-  console.error(`STATIC_DIR does not exist: ${STATIC_DIR}`);
-} else {
-  console.log(`STATIC_DIR exists: ${STATIC_DIR}`);
-}
-
 
 
 console.log("STATIC_DIR ", STATIC_DIR)
