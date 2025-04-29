@@ -9,8 +9,6 @@ import mongoose from 'mongoose'
 const usersFile = path.join(process.cwd(), "users.json");
 
 
-
-
 const uri = process.env.MONGODB_URI;
 
 

@@ -156,10 +156,10 @@ setInterval(() => {
 }, 60000);
 
 // Start keep-alive pings
-init()
+/*init()
   .then(() => {
     startKeepAlive();
   })
   .catch(error => {
     console.error('Failed to initialize server:', error);
-  });
+  });*/
