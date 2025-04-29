@@ -27,7 +27,6 @@ app.use(express.json());
 
 if (!fs.existsSync(STATIC_DIR)) {
   console.error(`STATIC_DIR does not exist: ${STATIC_DIR}`);
-  process.exit(1); // Exit the app if the static directory is missing
 } else {
   console.log(`STATIC_DIR exists: ${STATIC_DIR}`);
 }
