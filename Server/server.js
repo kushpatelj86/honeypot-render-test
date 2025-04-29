@@ -27,7 +27,7 @@ app.use(express.json());
 
 
 console.log("STATIC_DIR ", STATIC_DIR)
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
   res.sendFile(path.join(STATIC_DIR, 'login.html'));
 });
 
