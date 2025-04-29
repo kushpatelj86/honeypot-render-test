@@ -11,7 +11,7 @@ const usersFile = path.join(process.cwd(), "users.json");
 
 
 
-const uri = "mongodb+srv://admin:4Jk!)H20Co2@users.tpdfvh4.mongodb.net/?retryWrites=true&w=majority&appName=USERS";
+const uri = process.env.MONGODB_URI;
 
 
 try {
