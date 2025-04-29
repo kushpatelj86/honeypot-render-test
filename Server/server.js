@@ -25,12 +25,23 @@ const STATIC_DIR = path.join(__dirname, '../client');
 app.use(express.static(STATIC_DIR));
 app.use(express.json());
 
+if (!fs.existsSync(STATIC_DIR)) {
+  console.error(`STATIC_DIR does not exist: ${STATIC_DIR}`);
+  process.exit(1); // Exit the app if the static directory is missing
+} else {
+  console.log(`STATIC_DIR exists: ${STATIC_DIR}`);
+}
+
+
 
 console.log("STATIC_DIR ", STATIC_DIR)
 app.get('*', (req, res) => {
   res.sendFile(path.join(STATIC_DIR, 'login.html'));
 
 });
+
+
+
 
 // Add endpoint for key generation
 app.post('/generate-keys', async (req, res) => {
