@@ -27,7 +27,9 @@ app.use(express.json());
 
 
 console.log("STATIC_DIR ", STATIC_DIR)
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
+  console.log("Received a request to /login route");
+
   res.sendFile(path.join(STATIC_DIR, 'login.html'));
 });
 
